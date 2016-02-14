@@ -1,0 +1,26 @@
+# create a data only container to save the
+# postgres data
+# - don't change the image on this
+data:
+  image: elarasu/weave-ubuntu
+  volumes:
+    - /var/lib/postgresql
+  command: "true"
+
+postgres:
+  restart: always
+  image: postgres
+  volumes_from:
+    - data
+  #ports:
+    #- "5432:5432"
+
+web:
+  build: service
+  command: python manage.py runserver 0.0.0.0:80
+  #volumes:
+    #- ./service:/deploy
+  #ports:
+    #- "80:80"
+  links:
+    - postgres:postgres

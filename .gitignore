@@ -1,0 +1,6 @@
+dev.db
+*pyc
+*~
+node_modules/
+env
+old
