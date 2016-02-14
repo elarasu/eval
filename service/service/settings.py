@@ -136,6 +136,12 @@ INSTALLED_APPS = [
 
     # project
     "service",
+
+    # quiz
+    'quiz',
+    'multichoice',
+    'true_false',
+    'essay',
 ]
 
 # A sample logging configuration. The only tangible logging

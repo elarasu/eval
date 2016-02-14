@@ -29,13 +29,10 @@ sudo route -n add 172.17.0.0/16 192.168.99.100
 virtualenv -p python3 env
 source env/bin/activate
 pip install -r requirements.txt
+./manage.py makemigrations
 ./manage.py migrate
 ./manage.py loaddata sites
 ./manage.py runserver
-
-./manage.py makemigrations
-./manage.py migrate
-./manage.py syncdb
 ```
 
 ## Instructions
