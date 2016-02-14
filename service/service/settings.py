@@ -7,12 +7,23 @@ BASE_DIR = PACKAGE_ROOT
 
 DEBUG = True
 
+# Define your database connections
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "dev.db",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "eval",
+        'USER': 'admin',
+        'PASSWORD': 'Arooba',
+        'HOST': 'postgres',
     }
 }
+
+#DATABASES = {
+    #"default": {
+        #"ENGINE": "django.db.backends.sqlite3",
+        #"NAME": "dev.db",
+    #}
+#}
 
 ALLOWED_HOSTS = []
 

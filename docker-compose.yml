@@ -4,7 +4,7 @@
 data:
   image: elarasu/weave-ubuntu
   volumes:
-    - /var/lib/postgresql
+    - /var/lib/postgresql/data
   command: "true"
 
 postgres:
@@ -12,8 +12,11 @@ postgres:
   image: postgres
   volumes_from:
     - data
-  #ports:
-    #- "5432:5432"
+  ports:
+    - "5432:5432"
+  environment:
+    POSTGRES_USER: admin
+    POSTGRES_DB: eval
 
 web:
   build: service
