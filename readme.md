@@ -2,6 +2,9 @@
 
 eval server
 
+## development
+
+
 ## init
 ```
 psql -h postgres -U docker postgres
@@ -11,9 +14,6 @@ psql -h postgres -U docker todos
 CREATE EXTENSION postgis;
 CREATE EXTENSION postgis_topology;
 
-python manage.py makemigrations
-python manage.py migrate
-python manage.py syncdb
 python manage.py collectstatic
 python manage.py loaddata fixtures/sites.json
 python manage.py loaddata fixtures/oauth2_provider.json
@@ -29,6 +29,10 @@ sudo route -n add 172.17.0.0/16 192.168.99.100
 virtualenv -p python3 env
 source env/bin/activate
 pip install -r requirements.txt
+./manage.py migrate
+./manage.py loaddata sites
+./manage.py runserver
+
 ./manage.py makemigrations
 ./manage.py migrate
 ./manage.py syncdb
